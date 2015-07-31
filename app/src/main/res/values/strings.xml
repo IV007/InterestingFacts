@@ -7,8 +7,17 @@
     <!-- Button -->
     <string name="button">Show another Fun Fact</string>
 
-    <!-- Fun facts -->
+    <!-- Fun Facts -->
     <string name="funfact1">Ants stretch when they wake up in the morning</string>
+    <string name="funfact2">Mark Twain didn\'t graduate from elementary school</string>
+    <string name="funfact3">Slugs have 4 noses</string>
+    <string name="funfact4">If you want something don\'t ask someone busy</string>
+    <string name="funfact5">More people use blue toothbrushes than red ones</string>
+    <string name="funfact6">The state of Florida is bigger than England.</string>
+    <string name="funfact7">Boy: Who does it better? \nGirl: Nigerian boys.</string>
+    <string name="funfact8">Ostriches can run faster than horses</string>
+    <string name="funfact9">Olympic gold medals are actually made mostly of silver!</string>
+
 
 
 </resources>
