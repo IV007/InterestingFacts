@@ -1,6 +1,5 @@
 package com.sidelance.interestingfacts;
 
-import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,14 +11,12 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.Random;
-
 
 public class InterestingFactsActivity extends ActionBarActivity {
 
     private TextView factTextView;
     private Button newFactButton;
-    private Animation fade_in;
+    private Animation mFadeIn;
     private FactBook mFactBook = new FactBook();
     private ColorWheel mColorWheel = new ColorWheel();
 
@@ -28,7 +25,7 @@ public class InterestingFactsActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interesting_facts);
 
-        fade_in = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        mFadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
         factTextView = (TextView) findViewById(R.id.factTextView);
         newFactButton = (Button) findViewById(R.id.showFactButton);
         final RelativeLayout relativeLayout = (RelativeLayout)findViewById(R.id.funFactLayout);
@@ -40,7 +37,7 @@ public class InterestingFactsActivity extends ActionBarActivity {
                 String fact = mFactBook.getFact();
 
                 //update textView with dynamic fact
-                factTextView.startAnimation(fade_in);
+                factTextView.startAnimation(mFadeIn);
                 factTextView.setText(fact);
                 int color = mColorWheel.getColor();
                 relativeLayout.setBackgroundColor(color);
