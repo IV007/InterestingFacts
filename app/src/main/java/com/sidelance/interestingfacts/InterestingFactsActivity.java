@@ -1,18 +1,22 @@
 package com.sidelance.interestingfacts;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Random;
 
 
-public class InterestingFactsActivity extends ActionBarActivity {
+public class InterestingFactsActivity extends Activity {
+
+    public static final String TAG = InterestingFactsActivity.class.getSimpleName();
 
     private TextView factTextView;
     private Button newFactButton;
@@ -36,9 +40,10 @@ public class InterestingFactsActivity extends ActionBarActivity {
 
                 String fact = mFactBook.getFact();
 
-                //update textView with dynamic fact
+                //update textView dynamic with fade in Animation
                 factTextView.startAnimation(mFadeIn);
                 factTextView.setText(fact);
+                getMagicNumber();
                 int color = mColorWheel.getColor();
                 relativeLayout.setBackgroundColor(color);
                 newFactButton.setTextColor(color);
@@ -47,27 +52,48 @@ public class InterestingFactsActivity extends ActionBarActivity {
         });
     }
 
+    /**
+     * Method that randomly selects numbers.
+     */
+    public int getMagicNumber(){
+
+        //Randomly select fact
+        Random randomGenerator = new Random();
+
+        //Scramble number
+        int randomNumber = randomGenerator.nextInt(20);
+
+        //Pass Scrambled Number through prime number check
+        if (isPrime(randomNumber)) {
+
+            Log.i(TAG, "New Random Number detected! " + randomNumber);
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_interesting_facts, menu);
+           /* //Randomly Animate textView dynamically
+            factTextView.startAnimation(mFadeIn);
+            */
+
+        }
+        return randomNumber;
+    }
+
+
+    //Checks whetehr an int is prime or not
+    private boolean isPrime(int n) {
+
+        //Check if n is a multiple of 2
+        if (n % 2 == 0) return false;
+
+        //if not, then just check the odd numbers
+        for (int i = 3; i * i < n; i += 2 ){
+
+            if (n % i == 0)
+
+                return false;
+        }
+
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

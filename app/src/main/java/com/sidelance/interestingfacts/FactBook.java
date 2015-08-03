@@ -54,6 +54,7 @@ public class FactBook {
 
     };
 
+
     /**
     * Method that randomly selects fact
     */
@@ -69,4 +70,5 @@ public class FactBook {
 
         return fact;
     }
+
 }

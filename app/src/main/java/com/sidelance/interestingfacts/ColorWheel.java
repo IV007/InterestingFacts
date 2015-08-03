@@ -33,7 +33,9 @@ public class ColorWheel{
     };
 
     /**
-     * Method that randomly selects fact
+     * Method that randomly selects color.
+     *
+     * @return integer values
      */
     public int getColor(){
 
