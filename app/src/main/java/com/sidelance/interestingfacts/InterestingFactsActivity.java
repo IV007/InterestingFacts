@@ -9,7 +9,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Random;
 
@@ -60,18 +59,13 @@ public class InterestingFactsActivity extends Activity {
         //Randomly select fact
         Random randomGenerator = new Random();
 
-        //Scramble number
+        //Get random number
         int randomNumber = randomGenerator.nextInt(20);
 
-        //Pass Scrambled Number through prime number check
+        //Pass Random Number through prime number check
         if (isPrime(randomNumber)) {
 
             Log.i(TAG, "New Random Number detected! " + randomNumber);
-
-
-           /* //Randomly Animate textView dynamically
-            factTextView.startAnimation(mFadeIn);
-            */
 
         }
         return randomNumber;
